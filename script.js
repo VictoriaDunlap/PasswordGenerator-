@@ -1,12 +1,7 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-function lowercase() {
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  return alphabet[Math.floor(Math.random() * alphabet.length)];
-}
 
-console.log(lowercase);
 
 function generatePassword() {
   console.log("yeeyee");
@@ -26,22 +21,41 @@ function generatePassword() {
   // 6. Answers validated and at least one character type selected
   if (length < 8 || length > 128) {
     alert("Pick a number between 8 and 128.");
-    break;
+    return;
   } 
 
   if (lowercase || uppercase || numbers || specialChar){
     Math.random();
   } else { 
     alert('Select at least one specialized character')
-    break
+    return
   }
-  var liLower
-  var liUpper
-  var liNumbers
-  var liSc
+  var liLower = "abcdefghijklmnopqrstuvwxyz"
+  var liUpper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var liNumbers = "0123456789"
+  var liSc = "!@#$%^&*()"
+  var lstPassword = ""
 
-  return "pw will go here "
-}
+  if (lowercase === true) {
+    lstPassword + liLower
+  } 
+  if (uppercase === true) {
+    lstPassword + liUpper
+  }
+  if (numbers === true) {
+    lstPassword + liNumbers
+  }
+  if (specialChar === true) {
+    lstPassword + liSc
+  }
+
+  for (var i = 0; i <= length; i++) {
+    var randomNumber = Math.floor(Math.random() * lstPassword.length);
+    lstPassword += lstPassword.substring(randomNumber, randomNumber +1);
+
+
+  return lstPassword;
+}}
 
 // Write password to the #password input
 function writePassword() {
@@ -53,4 +67,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword); 
