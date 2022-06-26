@@ -4,7 +4,6 @@ var generateBtn = document.querySelector("#generate");
 
 
 function generatePassword() {
-  console.log("yeeyee");
 
   // 1. Prompt for length of pw 8 < 128 
   var length = prompt("How many characters would you like your password to be? (at least 8, no more than 128)");
@@ -52,9 +51,10 @@ function generatePassword() {
   for (var i = 0; i <= length; i++) {
     var randomNumber = Math.floor(Math.random() * lstPassword.length);
     lstPassword += lstPassword.substring(randomNumber, randomNumber +1);
-
+    console.log(lstPassword)
 
   return lstPassword;
+ 
 }}
 
 // Write password to the #password input
